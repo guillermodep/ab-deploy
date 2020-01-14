@@ -1,16 +1,6 @@
-&lt; ?php
- 
-//Carregar imagem
-$rImg = ImageCreateFromJPEG("santecgif.gif");
- 
-//Definir cor
-$cor = imagecolorallocate($rImg, 0, 0, 0);
- 
-//Escrever nome
-imagestring($rImg,5,126,22,urldecode($_GET['nome']),$cor);
- 
-//Header e output
-header('Content-type: image/jpeg');
-imagejpeg($rImg,NULL,100);
- 
-?&gt;
+<?php 
+ echo "Hello Developer, This is VERSION 1.0 - GREEN <br><br>";
+ echo "My Pod IP is : ".$_SERVER['SERVER_ADDR'] ;
+ echo "<img src='santecgif.gif' />";
+ background-image:url('santecgif.gif');
+?>
