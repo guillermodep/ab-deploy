@@ -8,7 +8,7 @@ imagettftext($img, 24, 0, 5, 24, $white, $font, $txt);
 
 // OUTPUT IMAGE
 header('Content-type: image/gif');
-imagejpeg($img);
+imagegif($img);
 imagedestroy($img);
 
 // OR SAVE TO A FILE
