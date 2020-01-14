@@ -1,6 +1,6 @@
 <?php
 // FETCH IMAGE & WRITE TEXT
-$img = imagecreatefromjpeg('santecgif.gif');
+$img = imagecreatefromgif('santecgif.gif');
 $white = imagecolorallocate($img, 255, 255, 255);
 $txt = "Hello Developer, This is VERSION 1.0 - GREEN and My Pod IP is: " .$_SERVER['SERVER_ADDR'];
 $font = ""; 
