@@ -1,6 +1,6 @@
 <?php
 
-echo "<center><h1>Prueba deploy y alta disponibilidad </h1</center><br/><br/> \n";
+echo "<center><h1>Prueba deploy en alta disponibilidad y deploy A - B</h1</center><br/><br/> \n";
 
 echo "Hi SRE, This is VERSION 1.0 ------   My Pod IP is : ";
 
