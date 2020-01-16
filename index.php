@@ -8,6 +8,8 @@ echo "<p> <font color=red>";
 
 echo file_get_contents('/etc/hostname');
 
+echo "<center><br/><br/> \n";
+
 echo "<img src=https://github.com/guillermodep/http-base/blob/master/star_elefant.png?raw=true>";
 
  
