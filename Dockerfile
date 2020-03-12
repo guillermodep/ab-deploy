@@ -1,8 +1,41 @@
-FROM image-registry.openshift-image-registry.svc:5000/openshift/php@sha256:a5aaaae5baf98cb674ac2352429e0450591b45d3674e44c516612a9ee67282d5
-LABEL "io.openshift.build.image"="image-registry.openshift-image-registry.svc:5000/openshift/php@sha256:a5aaaae5baf98cb674ac2352429e0450591b45d3674e44c516612a9ee67282d5" "io.openshift.build.commit.author"="guillermodep <58941444+guillermodep@users.noreply.github.com>" "io.openshift.build.commit.date"="Thu Jan 16 15:49:34 2020 -0300" "io.openshift.build.commit.id"="3054461712f33f11b9ec26a92751beab0b026c3b" "io.openshift.build.commit.ref"="HEAD" "io.openshift.build.commit.message"="Update index.php" "io.openshift.build.source-location"="https://github.com/guillermodep/ab-deploy"
-ENV OPENSHIFT_BUILD_NAME="abdeploy-4" OPENSHIFT_BUILD_NAMESPACE="abdeploy" OPENSHIFT_BUILD_SOURCE="https://github.com/guillermodep/ab-deploy" OPENSHIFT_BUILD_COMMIT="3054461712f33f11b9ec26a92751beab0b026c3b"
-USER root
-COPY upload/src /tmp/src
+FROM ubuntu:18.04
+
+RUN apt-get update && apt-get install -yq --no-install-recommends \
+    apt-utils \
+    curl \
+    # Install git
+    git \
+    # Install apache
+    apache2 \
+    # Install php 7.2
+    libapache2-mod-php7.2 \
+    php7.2-cli \
+    php7.2-json \
+    php7.2-curl \
+    php7.2-fpm \
+    php7.2-gd \
+    php7.2-ldap \
+    php7.2-mbstring \
+    php7.2-mysql \
+    php7.2-soap \
+    php7.2-sqlite3 \
+    php7.2-xml \
+    php7.2-zip \
+    php7.2-intl \
+    php-imagick \
+    # Install tools
+    openssl \
+    nano \
+    graphicsmagick \
+    imagemagick \
+    ghostscript \
+    mysql-client \
+    iputils-ping \
+    locales \
+    sqlite3 \
+    ca-certificates \
+    && apt-get clean && rm -rf /var/lib/apt/lists/*
+    
 RUN chown -R 1001:0 /tmp/src
 USER 1001
 RUN /usr/libexec/s2i/assemble
